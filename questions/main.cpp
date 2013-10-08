@@ -4,22 +4,32 @@ using namespace std;
 
 int count=0;
 
-class obj{
-        public:
-                obj(){
-                        count++;
-                        cout<<"in constructor, count is: "<<count<<endl;
-                }
-                ~obj(){
-                        count--;
-                        cout<<"in destructor, count is: "<<count<<endl;
-                }
-};
+class Foo {
+    int i;
+    public:
+            Foo(int x): i(x) {}
+            void list(){
+                cout <<" i is : "<< i<<endl;
+            }
+ };
+
 
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    obj A;
+   Foo *f = new Foo(1);
+   Foo A(100);
+
+
+  // Foo &f = new Foo(1);
+  //int i = Foo::i;
+   //Foo *af = new Foo[10];
+  const Foo &af = Foo(99);
+cout <<"here"<<endl;
+  f->list();
+  A.list();
+ *af.list();
+
+
     return 0;
 }
